@@ -1,26 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFrameworks>net8.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Authors>Max Samson</Authors>
     <Company>OpenCodeDev</Company>
-    <Copyright>OpenCodeDev © 2022</Copyright>
+    <Copyright>OpenCodeDev © 2024</Copyright>
     <PackageProjectUrl>https://github.com/OpenCodeDev/OpenCodeDev.Reflection.Helper</PackageProjectUrl>
     <RepositoryUrl>https://github.com/OpenCodeDev/OpenCodeDev.Reflection.Helper</RepositoryUrl>
     <PackageTags>reflection, c#, extensions, helper, opencodedev, ocd</PackageTags>
-	<Version>1.0.7</Version>
-    <AssemblyVersion>1.0.7</AssemblyVersion>
+	<Version>1.0.8</Version>
+    <AssemblyVersion>1.0.8</AssemblyVersion>
     <PackageIcon>icon.png</PackageIcon>
     <FileVersion></FileVersion>
   </PropertyGroup>
-
+	
   <ItemGroup>
-    <None Update="icon.png">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
+	  <None Include="icon.png" Pack="true" PackagePath=""/>
   </ItemGroup>
-
 </Project>
