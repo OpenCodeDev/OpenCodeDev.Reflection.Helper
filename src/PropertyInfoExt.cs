@@ -5,15 +5,15 @@ namespace OpenCodeDev.Reflection.Helper
 {
     public static class PropertyInfoExt
     {
-        public static bool IsBool(this PropertyInfo prop) { return prop.PropertyType == typeof(bool); }
+        public static bool IsBool(this PropertyInfo prop) { return prop.PropertyType == typeof(bool) || prop.PropertyType == typeof(bool?); }
         public static bool IsString(this PropertyInfo prop) { return prop.PropertyType == typeof(String); }
-        public static bool IsFloat(this PropertyInfo prop) { return prop.PropertyType == typeof(float); }
-        public static bool IsDecimal(this PropertyInfo prop) { return prop.PropertyType == typeof(decimal); }
-        public static bool IsDouble(this PropertyInfo prop) { return prop.PropertyType == typeof(double); }
-        public static bool IsInt(this PropertyInfo prop) { return prop.PropertyType == typeof(int); }
-        public static bool IsLong(this PropertyInfo prop) { return prop.PropertyType == typeof(long); }
-        public static bool IsShort(this PropertyInfo prop) { return prop.PropertyType == typeof(short); }
-        public static bool IsDateTime(this PropertyInfo prop) { return prop.PropertyType == typeof(DateTime); }
+        public static bool IsFloat(this PropertyInfo prop) { return prop.PropertyType == typeof(float) || prop.PropertyType == typeof(float?); }
+        public static bool IsDecimal(this PropertyInfo prop) { return prop.PropertyType == typeof(decimal) || prop.PropertyType == typeof(decimal?); }
+        public static bool IsDouble(this PropertyInfo prop) { return prop.PropertyType == typeof(double) || prop.PropertyType == typeof(double?); }
+        public static bool IsInt(this PropertyInfo prop) { return prop.PropertyType == typeof(int) || prop.PropertyType == typeof(int?); }
+        public static bool IsLong(this PropertyInfo prop) { return prop.PropertyType == typeof(long) || prop.PropertyType == typeof(long?); }
+        public static bool IsShort(this PropertyInfo prop) { return prop.PropertyType == typeof(short) || prop.PropertyType == typeof(short?); }
+        public static bool IsDateTime(this PropertyInfo prop) { return prop.PropertyType == typeof(DateTime) || prop.PropertyType == typeof(DateTime?); }
 
 
         /// <summary>
@@ -55,6 +55,8 @@ namespace OpenCodeDev.Reflection.Helper
         public static Type? GetListType(this PropertyInfo prop)
         { return !prop.IsList() ? null : prop.PropertyType.GetGenericArguments()[0]; }
 
+        public static Type? GetTypeArgZero(this PropertyInfo prop)
+        { return !prop.IsList() ? null : prop.PropertyType.GetGenericArguments()[0]; }
 
         public static bool Is<T>(this PropertyInfo prop) { return prop.Is(typeof(T)); }
 
@@ -69,11 +71,15 @@ namespace OpenCodeDev.Reflection.Helper
                 prop.PropertyType.GetGenericTypeDefinition() == type; 
         }
 
-        public static bool Is(this PropertyInfo prop, Type type) { return prop.PropertyType == type; }
+        public static bool Is(this PropertyInfo prop, Type type) {
+            
+
+            return (prop.PropertyType == type) || Nullable.GetUnderlyingType(prop.PropertyType) == type; 
+        }
 
         /// <summary>
         /// Check if an attribute exist on a property return false if prop null and if not found or if attribute == null
         /// </summary>
-        public static bool HasAttribute<T>(this PropertyInfo prop) { return prop == null ? false : prop.GetCustomAttribute(typeof(T)) != null; }
+        public static bool HasAttribute<T>(this PropertyInfo prop) { return prop == null ? false : prop.GetCustomAttributes(typeof(T)).Count() >= 2 || prop.GetCustomAttribute(typeof(T)) != null; }
     }
 }

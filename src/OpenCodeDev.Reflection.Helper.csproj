@@ -10,8 +10,8 @@
     <PackageProjectUrl>https://github.com/OpenCodeDev/OpenCodeDev.Reflection.Helper</PackageProjectUrl>
     <RepositoryUrl>https://github.com/OpenCodeDev/OpenCodeDev.Reflection.Helper</RepositoryUrl>
     <PackageTags>reflection, c#, extensions, helper, opencodedev, ocd</PackageTags>
-	<Version>1.0.4</Version>
-    <AssemblyVersion>1.0.4</AssemblyVersion>
+	<Version>1.0.7</Version>
+    <AssemblyVersion>1.0.7</AssemblyVersion>
     <PackageIcon>icon.png</PackageIcon>
     <FileVersion></FileVersion>
   </PropertyGroup>

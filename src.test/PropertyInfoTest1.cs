@@ -13,16 +13,16 @@ namespace OpenCodeDev.Reflection.Helper.Test
         public bool BoolType { get; set; }
 
         [EmailAddress]
-        public string StringType { get; set; }
+        public string? StringType { get; set; }
 
-        public long LongType { get; set; }
-        public static double DoubleType { get; set; }
-        private static float FloatType { get; set; }
-        public short ShortType { get; set; }
+        public long? LongType { get; set; }
+        public static double? DoubleType { get; set; }
+        private static float? FloatType { get; set; }
+        public short? ShortType { get; set; }
         public decimal DecimalType { get; set; }
         public object ObjectType { get; set; }
-        public DateTime TimeOfTheYear { get; set; }
-        public Object BigObject { get; set; } = null;
+        public DateTime? TimeOfTheYear { get; set; }
+        public Object? BigObject { get; set; } = null;
         public String BigString { get; set; } 
 
         public MyObjTester SubObj { get; set; }
